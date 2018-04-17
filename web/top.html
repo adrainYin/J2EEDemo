@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function selectedAll(obj) {
+            var all = document.getElementsByName("hobby");
+            for(var i = 0 ; i < all.length; i++){
+                all[i].checked = obj.checked;
+            }
+        }
+
+        function inverseSelect() {
+            var allBox = document.getElementsByName("hobby");
+            for(var i = 0 ; i < allBox.length ; i++){
+                alllBox[i].checked = !allBox[i].checked;
+            }
+        }
+    </script>
+</head>
+
+    <p>我就是一段话 ，别的没有什么了</p>
+    <form name="hello" id="110" action="http://www.baidu.com" method="post">
+        单行文本框<input name="username" type="text" id="username" /><br/>
+        密码<input name="password" id="password" type="password" /><br/>
+        单选框<input type="radio" name="sex" id="male"/>男
+        <input type="radio" name="sex" id="female"/>女</form>br>
+    <br>
+    <a href="javascript:void(0)" onclick="inverseSelect()">反选按钮</a>
+     全选按钮<input type="checkbox" id="checkBox" name="checkBox" onclick="selectedAll(this)">
+        复选框<input type="checkbox" name="hobby" value="1" id="football"/>足球
+             <input type="checkbox" name="hobby" value="2" id="basketball"/>篮球
+            <input type="checkbox" name="hobby" value="3" id="tinnes"/>网球 </br>
+        文件上传域<input type="file" name="file"/></br>
+        图片域<input type="image" src="img/1.jpg" height="400" width="400"/></br>
+        提交按钮<input type="submit" name="submit" value="提交"/></br>
+        重置按钮<input type="reset" name="reset" value="重置"/></br>
+        普通按钮<input type="button" name="button" value="普通"/></br>
+       <!--提交按钮<button type="submit" name="submit1" value="提交"/>提交</br>
+        重置按钮<button type="reset" name="reset1" value="重置"/></br> -->
+        </br>
+        </br>
+        </br>
+        </br>
+        <select name="city" id="city">
+            <option>北京</option>
+            <option>上海</option>
+            <option>深圳</option>
+            <option>广州</option>
+        </select>
+        </br>
+
+       <!--标签的分组-->
+        <select name="city" id="gggg" size="3">
+           <optgroup label="一线城市">
+               <option value="1">北京</option>
+               <option value="2">上海</option>
+               <option>深圳</option>
+               <option>广州</option>
+           </optgroup>
+            <optgroup label="二线城市">
+                <option>深圳</option>
+                <option>广州</option>
+            </optgroup>
+        </select>
+
+        </br>
+        <!--多行文本框可以直接使用换行功能 -->
+        <textarea name="content" cols="50" rows="5">
+            1. 你好啊
+            2. 我不好
+        </textarea>
+    </form>
+</body>
+</html>

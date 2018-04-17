@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c3p0-config>
+<!--在c3p0配置中， default的配置关键字，不需要加name属性-->
+	<default-config>
+		<property name="driverClass">com.mysql.jdbc.Driver</property>
+		<property name="jdbcUrl">jdbc:mysql://localhost:3306/test</property>
+		<property name="user">root</property>
+		<property name="password">123000</property>
+		<property name="initialPoolSize">10</property>
+		<property name="maxPoolSize">20</property>
+        <property name="maxStatements">40</property>
+        <property  name="maxStatementsPerConnection">5</property>
+	</default-config>
+
+<!--使用带命名的c3p0配置，需要指定命名参数-->
+	<named-config name="myConfig">
+		<property name="driverClass">com.mysql.jdbc.Driver</property>
+		<property name="jdbcUrl">jdbc:mysql://localhost:3306/test</property>
+		<property name="user">root</property>
+		<property name="password">123000</property>
+        <property name="initialPoolSize">10</property>
+        <property name="maxStatements">40</property>
+        <property  name="maxStatementsPerConnection">5</property>
+	</named-config>
+
+
+</c3p0-config>
