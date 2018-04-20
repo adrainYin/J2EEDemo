@@ -49,5 +49,15 @@
         <servlet-name>ReadPropertiesServlet</servlet-name>
         <url-pattern>/readPropertiesServlet</url-pattern>
     </servlet-mapping>
+    
+    <!--测试response的Servlet类-->
+    <servlet>
+        <servlet-name>PrintServlet</servlet-name>
+        <servlet-class>response.PrintResponse</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PrintServlet</servlet-name>
+        <url-pattern>/printServlet</url-pattern>
+    </servlet-mapping>
 
 </web-app>
