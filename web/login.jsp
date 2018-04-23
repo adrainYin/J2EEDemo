@@ -15,8 +15,6 @@
    session.setAttribute("name" , "session");
    request.setAttribute("name" , "request");
    application.setAttribute("name" , "application");%>
-<%request.getParameterValues()%>
-<%response.setHeader();%>
     <!--在这里定义了一个el表达式，可以直接获取键为name的内容
     作用域范围：依次从page,request,session,application获得数据
     若均没有此数据则返回null-->
