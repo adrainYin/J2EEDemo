@@ -59,5 +59,15 @@
         <servlet-name>PrintServlet</servlet-name>
         <url-pattern>/printServlet</url-pattern>
     </servlet-mapping>
+    
+    <!--产生验证码图片的Servlet-->
+    <servlet>
+        <servlet-name>VerifyCodeServlet</servlet-name>
+        <servlet-class>servlet.VerifyCodeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VerifyCodeServlet</servlet-name>
+        <url-pattern>/verifyCodeServlet</url-pattern>
+    </servlet-mapping>
 
 </web-app>

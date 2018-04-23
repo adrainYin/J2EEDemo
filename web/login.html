@@ -8,7 +8,23 @@
 <form action="../userServlet" method="post">
     用户名:<input type="text" id="username" name="username" /><br/>
     密码：<input type="password" id="password" name="password" /><br/>
-    <input type="submit" id="submit" name="submit" value="提交">
+    <input type="submit" id="submit" name="submit" value="提交"><br/>
+    <!--<div class="col-sm-3">
+        <img src="${pageContext.request.contextPath}/VerifyCodeServlet">
+        <br/>
+    </div>-->
+    <div class="col-sm-5">
+        <img id="imgId" onclick="changeImg()" style="cursor:pointer;"
+        src="${pageContext.request.contextPath}/verifyCodeServlet" />&nbsp;&nbsp;
+        <a href="javascript:void(0)" onclick="changeImg()">换一张</a>
+        <script type="text/javascript">
+            function changeImg() {
+                $("#imgId").attr("src","${pageContext.request.contextPath}/verifyCodeServlet?t="+new Date());
+            }
+        </script>
+
+
+    </div>
 </form>
 </body>
 </html>

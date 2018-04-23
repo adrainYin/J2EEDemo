@@ -1,11 +1,14 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="webDemo:war exploded">
+  <artifact type="war" name="webDemo:war exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/webDemo_war_exploded</output-path>
-    <root id="root">
+    <root id="archive" name="webDemo_war exploded.war">
       <element id="javaee-facet-resources" facet="webDemo/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="webDemo" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="mysql-connector-java-5.1.46-bin" />
         </element>
       </element>
       <element id="directory" name="folder" />
