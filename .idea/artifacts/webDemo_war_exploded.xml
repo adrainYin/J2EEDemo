@@ -1,17 +1,25 @@
 <component name="ArtifactManager">
-  <artifact type="war" name="webDemo:war exploded">
+  <artifact type="exploded-war" name="webDemo:war exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/webDemo_war_exploded</output-path>
-    <root id="archive" name="webDemo_war exploded.war">
-      <element id="javaee-facet-resources" facet="webDemo/web/Web" />
+    <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="webDemo" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="module" name="JUnit5.0" module-name="webDemo" />
+          <element id="file-copy" path="$USER_HOME$/Downloads/基础.（1-25天）/WEB10_JDBC连接池&amp;DBUtils/WEB10_JDBC连接池&amp;DBUtils/资料/spring-tool-suite-3.7.1.RELEASE-e4.5.1-win32-x86_64.zip" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/c3p0-0.9.2.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/commons-dbcp2-2.2.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/commons-dbutils-1.7.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/commons-pool2-2.5.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/dom4j-2.1.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/mchange-commons-java-0.2.3.4.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/mysql-connector-java-5.1.46-bin.jar" />
           <element id="library" level="project" name="mysql-connector-java-5.1.46-bin" />
         </element>
       </element>
-      <element id="directory" name="folder" />
+      <element id="javaee-facet-resources" facet="webDemo/web/Web" />
     </root>
   </artifact>
 </component>
