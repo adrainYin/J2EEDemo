@@ -31,12 +31,12 @@ public class VisitServlet extends HttpServlet {
         resp.setContentType("text/html;charset=UTF-8");
 
         if (cookie == null){
-            resp.getWriter().println("<h1>欢迎来到本网站！<h1>");
+            resp.getWriter().println("<h4>欢迎来到本网站！<h4>");
 
         }else {
             Long time = Long.parseLong(cookie.getValue());
             Date date = new Date(time);
-            resp.getWriter().println("<h1>欢迎来到本网站！上次登陆时间为" + date.toString() +"!<h1>");
+            resp.getWriter().println("<h4>欢迎来到本网站！上次登陆时间为" + date.toString() +"!<h4>");
     }
 
         Cookie visitCookie = new Cookie("visitTime" , ""+System.currentTimeMillis());

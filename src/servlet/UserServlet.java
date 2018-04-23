@@ -39,10 +39,12 @@ public class UserServlet  extends HttpServlet {
         String password = req.getParameter("password");
         String checkcode = req.getParameter("checkcode");
         String realCheckcode = (String)req.getSession().getAttribute("checkcode");
+        System.out.println(realCheckcode);
+        System.out.println(checkcode);
         if (!checkcode.equals(realCheckcode)){
             req.setAttribute("msg" , "验证码输入错误！");
             //地址的重定向，是客户端向服务器提出的重定向请求，不改变原url，只是服务器将内容加载过来。请求头信息没有改变
-            req.getRequestDispatcher("/login.html").forward(req,resp);
+            req.getRequestDispatcher("/login.jsp").forward(req,resp);
         }
 
         User user = new User(username , password);
