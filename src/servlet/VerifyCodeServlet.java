@@ -25,6 +25,9 @@ public class VerifyCodeServlet  extends HttpServlet {
         int weight = 60;
         String data = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         Random random = new Random();
+
+        StringBuffer stringBuffer = new StringBuffer();
+
         //初始化一个图片缓存
         BufferedImage bufferedImage = new BufferedImage(weight , height , BufferedImage.TYPE_INT_BGR);
         Graphics graphics = bufferedImage.getGraphics();
@@ -41,9 +44,12 @@ public class VerifyCodeServlet  extends HttpServlet {
             //截取到随机的字母
             int index  = new Random().nextInt(data.length());
             String string = data.substring(index , index + 1);
+
+            stringBuffer.append(string);
             //将响应的字母写入图片
             graphics.drawString(string , weight / 6 * (i +1) , 20);
         }
+        req.getSession().setAttribute("checkcode" , stringBuffer.toString());
 
         for (int i = 0; i < 3; i++) {
             graphics.setColor(new Color(new Random().nextInt(255) , new Random().nextInt(255) ,

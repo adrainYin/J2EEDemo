@@ -80,6 +80,6 @@
         <url-pattern>/visitServlet</url-pattern>
     </servlet-mapping>
     
-</servlet>
+
 
 </web-app>

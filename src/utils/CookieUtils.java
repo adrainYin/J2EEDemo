@@ -8,7 +8,7 @@ public class CookieUtils {
         for (int i = 0; i < cookies.length; i++) {
             Cookie currCookie = cookies[i];
             String currCookieName = currCookie.getName();
-            if (currCookieName != null){
+            if (currCookieName.equals(cookieName)){
                 return currCookie;
             }
         }
