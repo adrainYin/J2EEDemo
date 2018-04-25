@@ -12,7 +12,7 @@ public class DBUtil {
     private static String url;
     private static String user;
     private static String password;
-
+    private static ThreadLocal<Connection> local = new ThreadLocal<>();
     static {
         /*
         使用ResourceBundle获取文件的资源信息
@@ -58,6 +58,39 @@ public class DBUtil {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static void commitAndClose(Connection connection){
+        try {
+            connection.commit();
+            connection.close();
+        } catch (SQLException e) {
+            System.out.println("数据库事务提交异常");
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void rollbackAndClose(Connection connection){
+        try {
+            connection.rollback();
+            connection.close();
+        } catch (SQLException e) {
+            System.out.println("事务回滚异常");
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void closeAllResource(ResultSet resultSet , PreparedStatement preparedStatement , Connection connection){
+        try {
+            resultSet.close();
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public static void main(String[] args) throws SQLException {

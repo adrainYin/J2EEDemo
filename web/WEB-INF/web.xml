@@ -79,7 +79,15 @@
         <servlet-name>VisitServlet</servlet-name>
         <url-pattern>/visitServlet</url-pattern>
     </servlet-mapping>
-    
+    <!--转账的测试demo-->
+    <servlet>
+        <servlet-name>AccountServlet</servlet-name>
+        <servlet-class>servlet.AccountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AccountServlet</servlet-name>
+        <url-pattern>/accountServlet</url-pattern>
+    </servlet-mapping>
 
 
 </web-app>
