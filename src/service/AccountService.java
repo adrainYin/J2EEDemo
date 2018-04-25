@@ -2,7 +2,6 @@ package service;
 
 import dao.AccountDao;
 import utils.C3p0Utils;
-import utils.DBUtil;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -22,8 +21,8 @@ public class AccountService {
         try {
             connection.setAutoCommit(false);
             AccountDao accountDao = new AccountDao();
-            accountDao.outMoney(connection,payorName , money);
-            accountDao.inMoney(connection,payeeName, money);
+            accountDao.outMoney(payorName , money);
+            accountDao.inMoney(payeeName, money);
             connection.commit();
             connection.close();
             //DBUtil.commitAndClose(connection);

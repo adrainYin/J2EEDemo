@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
 import java.util.Properties;
-import java.util.ResourceBundle;
 
 public class DBUtil {
 
@@ -13,6 +12,7 @@ public class DBUtil {
     private static String user;
     private static String password;
     private static ThreadLocal<Connection> local = new ThreadLocal<>();
+
     static {
         /*
         使用ResourceBundle获取文件的资源信息

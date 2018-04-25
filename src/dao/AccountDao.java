@@ -1,7 +1,6 @@
 package dao;
 
 import utils.C3p0Utils;
-import utils.DBUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,10 +8,11 @@ import java.sql.SQLException;
 
 public class AccountDao {
 
-    public void outMoney(Connection connection, String payorName , double money){
-
+    public void outMoney(String payorName , double money){
+        Connection connection = null;
         PreparedStatement preparedStatement = null;
         //ResultSet resultSet = null;
+        connection = C3p0Utils.getConnection();
         if (connection == null){
             connection = C3p0Utils.getConnection();
         }
@@ -30,8 +30,10 @@ public class AccountDao {
         }
     }
 
-    public void inMoney(Connection connection,String payeeName , double money){
+    public void inMoney(String payeeName , double money){
+        Connection connection = null;
         PreparedStatement preparedStatement = null;
+        connection = C3p0Utils.getConnection();
         if (connection == null){
             connection = C3p0Utils.getConnection();
         }
