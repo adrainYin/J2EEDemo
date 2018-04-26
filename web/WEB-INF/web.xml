@@ -89,5 +89,43 @@
         <url-pattern>/accountServlet</url-pattern>
     </servlet-mapping>
 
-
+    <!--查询所有商品的servlet-->
+    <servlet>
+        <servlet-name>ProductFindAllServlet</servlet-name>
+        <servlet-class>servlet.ProductFindAllServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductFindAllServlet</servlet-name>
+        <url-pattern>/productFindAllProduct</url-pattern>
+    </servlet-mapping>
+    
+    <!--添加商品的demo-->
+    <servlet>
+        <servlet-name>AddProdcutServlet</servlet-name>
+        <servlet-class>servlet.AddProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddProdcutServlet</servlet-name>
+        <url-pattern>/addProductServlet</url-pattern>
+    </servlet-mapping>
+    
+    <!--根据id查询商品的servlet-->
+    <servlet>
+        <servlet-name>FindProductByIdServlet</servlet-name>
+        <servlet-class>servlet.FindProductByIdServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindProductByIdServlet</servlet-name>
+        <url-pattern>/findProductById</url-pattern>
+    </servlet-mapping>
+    
+    <!--修改商品信息demo的serlvet-->
+    <servlet>
+        <servlet-name>ProductEditServlet</servlet-name>
+        <servlet-class>servlet.ProductEditServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductEditServlet</servlet-name>
+        <url-pattern>/productEditServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
