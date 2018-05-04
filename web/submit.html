@@ -4,6 +4,38 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<script type="text/javascript">
+    function sendGet() {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function (){
+            if (xmlHttp.readyState == 4 ){
+                if (xmlHttp.status == 200){
+                    /**
+                     * 返回Servlet的返回数据
+                     */
+                    alert("响应数据" + xmlHttp.responseText);
+                }
+            }
+        };
+        xmlHttp.open("get" , "/helloServlet?username=jack1111&password=1234");
+        xmlHttp.send(null);
+    }
+
+    function sendPost() {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function () {
+            if (xmlHttp.readyState == 4){
+                if (xmlHttp.status == 200){
+                    alert("响应数据" + xmlHttp.responseText);
+                }
+            }
+        };
+        xmlHttp.setRequestHeader("content-type","application/x-www-form-urlencoded");
+        xmlHttp.open("post" , "/helloServlet");
+        xmlHttp.send("username=杰克&password=1234");
+
+    }
+</script>
 <body>
 <form action="#" method="get">
     用户名：<input type="text" name="username" value="jack" /><br/>
@@ -16,5 +48,7 @@
     密码：<input type="password" name="password" value="000321"/><br/>
     <input type="submit" value="postSUbmit">
 </form>
+ <!--点击我：<button type="button" onclick="sendGet()" value="点击我"/><br/>-->
+ 点击我发送post请求:<button type="submit" onclick="sendPost()" value="点击我"/><br/>
 </body>
 </html>

@@ -83,4 +83,18 @@ public class ProductDao {
         }
         return 0;
     }
+
+    public List<Product> findProductByCondition(String sqlBuffer , Object[] params){
+        QueryRunner queryRunner = new QueryRunner(C3p0Utils.getDataSource());
+        /**
+         * 在QueryRunner匹配模糊查询的时候不能匹配到%%符号 ，所以要将符号和参数值一起放入params中
+         */
+        String sql = "SELECT * FROM product WHERE 1=1 " + sqlBuffer;
+        try {
+            return queryRunner.query(sql , new BeanListHandler<>(Product.class) , params);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

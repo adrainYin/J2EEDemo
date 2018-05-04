@@ -128,4 +128,24 @@
         <servlet-name>ProductEditServlet</servlet-name>
         <url-pattern>/productEditServlet</url-pattern>
     </servlet-mapping>
+    
+    <!--分页查询数据的demo的Servlet-->
+    <servlet>
+        <servlet-name>FindDataByPageServlet</servlet-name>
+        <servlet-class>servlet.FindDataByPageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindDataByPageServlet</servlet-name>
+        <url-pattern>/findDataByNumber</url-pattern>
+    </servlet-mapping>
+    
+    <!--根据商品名和商品属性查找的demo的Servlet-->
+    <servlet>
+        <servlet-name>FindProductByNameAndCid</servlet-name>
+        <servlet-class>servlet.FindProductByNameAndCidServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindProductByNameAndCid</servlet-name>
+        <url-pattern>/findProductByNameAndCid</url-pattern>
+    </servlet-mapping>
 </web-app>
