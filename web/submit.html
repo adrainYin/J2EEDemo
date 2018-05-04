@@ -20,6 +20,15 @@
         xmlHttp.open("get" , "/helloServlet?username=jack1111&password=1234");
         xmlHttp.send(null);
     }
+    
+    function getXMLHTTP() {
+        var XMLHTTP = null;
+        if (window.XMLHttpRequest){
+            XMLHTTP = new XMLHttpRequest();
+        }else if(window.ActiveXObject){
+            XMLHTTP = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+    }
 
     function sendPost() {
         var xmlHttp = new XMLHttpRequest();

@@ -17,4 +17,17 @@ public class UserDao {
         return isExistUser;
 
     }
+
+    public User findUserByUsername(String username){
+        QueryRunner queryRunner = new QueryRunner(C3p0Utils.getDataSource());
+        String sql = "SELECT * FROM user WHERE username=?";
+        Object[] params = {username};
+        try {
+            User user = queryRunner.query(sql , new BeanHandler<>(User.class) , params);
+            return user;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

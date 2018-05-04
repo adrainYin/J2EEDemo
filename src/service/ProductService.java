@@ -1,6 +1,7 @@
 package service;
 
 import bean.Product;
+import bean.TestProduct;
 import dao.ProductDao;
 
 import java.util.ArrayList;
@@ -50,5 +51,32 @@ public class ProductService {
         Object[] params = paramsList.toArray();
         ProductDao productDao = new ProductDao();
         return productDao.findProductByCondition(sqlBuffer , params);
+    }
+
+    public List<TestProduct> findProductByWord(String word){
+        StringBuilder stringBuilder = new StringBuilder();
+        List<Object> paramList = new ArrayList<>();
+
+        //将字符串拆分为% % %的格式 ，其中用%开始 ， 用%结束
+        if (word != null) {
+            StringBuilder wordBuilder = new StringBuilder();
+            wordBuilder.append("%");
+            for (int i = 0; i < word.length(); i++) {
+                wordBuilder.append(word.charAt(i)).append("%");
+            }
+
+            stringBuilder.append("AND pname LIKE ?");
+            paramList.add(wordBuilder.toString());
+            //将字符串数据两次加入查询条件
+            //如果是中文，那么第一次就可以匹配成功，如果是拼音那么第二个条件可以匹配成功而第一个条件一定不会匹配成功
+            stringBuilder.append("OR pinyin LIKE ?");
+            paramList.add(wordBuilder.toString());
+        }
+
+        String condition = stringBuilder.toString();
+        Object[] params = paramList.toArray();
+
+        ProductDao productDao = new ProductDao();
+        return productDao.findProductByWord(condition , params);
     }
 }

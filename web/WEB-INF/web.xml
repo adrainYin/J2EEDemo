@@ -148,4 +148,14 @@
         <servlet-name>FindProductByNameAndCid</servlet-name>
         <url-pattern>/findProductByNameAndCid</url-pattern>
     </servlet-mapping>
+    
+    <!--ajax验证用户名是否存在的demo的Servlet-->
+    <servlet>
+        <servlet-name>UserCheckServlet</servlet-name>
+        <servlet-class>servlet.UserCheckServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserCheckServlet</servlet-name>
+        <url-pattern>/userCheckServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

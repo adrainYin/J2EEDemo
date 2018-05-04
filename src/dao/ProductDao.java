@@ -1,9 +1,11 @@
 package dao;
 
 import bean.Product;
+import bean.TestProduct;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.junit.jupiter.api.Test;
 import utils.C3p0Utils;
 
 import java.sql.SQLException;
@@ -92,6 +94,17 @@ public class ProductDao {
         String sql = "SELECT * FROM product WHERE 1=1 " + sqlBuffer;
         try {
             return queryRunner.query(sql , new BeanListHandler<>(Product.class) , params);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<TestProduct> findProductByWord(String condition , Object[] params){
+        QueryRunner queryRunner = new QueryRunner(C3p0Utils.getDataSource());
+        String sql = "SELECT * FROM testproduct WHERE 1=1 " + condition;
+        try {
+             return queryRunner.query(sql , new BeanListHandler<>(TestProduct.class) , params);
         } catch (SQLException e) {
             e.printStackTrace();
         }

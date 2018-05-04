@@ -11,4 +11,9 @@ public class UserService {
         UserDao userDao = new UserDao();
         return userDao.login(user);
     }
+
+    public User findUserByUsername(String username){
+        UserDao userDao = new UserDao();
+        return userDao.findUserByUsername(username);
+    }
 }
