@@ -10,6 +10,33 @@
         <param-name>count</param-name>
         <param-value>0</param-value>
     </context-param>
+
+    <context-param>
+        <param-name>dbURL</param-name>
+        <param-value>jdbc:mysql://localhost:3306/test</param-value>
+    </context-param>
+    <context-param>
+        <param-name>dbuser</param-name>
+        <param-value>root</param-value>
+    </context-param>
+    <context-param>
+        <param-name>dbpassword</param-name>
+        <param-value>123000</param-value>
+    </context-param>
+
+    <!--设置web的监听器-->
+    <listener>
+        <listener-class>listener.AppContextAttributeListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>listener.AppContextListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>listener.MySessionListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>listener.MyServletRequestListener</listener-class>
+    </listener>
     <!--测试Servlet-->
     <servlet>
         <servlet-name>HelloMyServlet</servlet-name>
@@ -30,6 +57,16 @@
         <welcome-file></welcome-file>
         <welcome-file></welcome-file>
     </welcome-file-list>
+    
+    <!--测试用的MyServlet-->
+    <servlet>
+        <servlet-name>MyServlet</servlet-name>
+        <servlet-class>servlet.MyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MyServlet</servlet-name>
+        <url-pattern>/myServlet</url-pattern>
+    </servlet-mapping>
     <!--用户登陆Servlet-->
     <servlet>
         <servlet-name>UserServlet</servlet-name>
@@ -157,5 +194,15 @@
     <servlet-mapping>
         <servlet-name>UserCheckServlet</servlet-name>
         <url-pattern>/userCheckServlet</url-pattern>
+    </servlet-mapping>
+    
+    <!--模糊条件查询商品-->
+    <servlet>
+        <servlet-name>FindProductByWordServlet</servlet-name>
+        <servlet-class>servlet.ProductFindByWordServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FindProductByWordServlet</servlet-name>
+        <url-pattern>/findProductByWordServlet</url-pattern>
     </servlet-mapping>
 </web-app>

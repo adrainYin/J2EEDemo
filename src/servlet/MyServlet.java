@@ -1,18 +1,32 @@
 package servlet;
 
-public class MyServlet {
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
-    public void start() {
-        System.out.println("开始");
+public class MyServlet extends HttpServlet{
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
     }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        ServletContext servletContext = req.getServletContext();
+        servletContext.setAttribute("user" ,  "yinchenhao");
+        String user = (String) servletContext.getAttribute("user");
+        //对servletContext的内容进行更新， 会调用监听器的replace方法。但是getVlaue()方法返回的是修改之前的旧的值。
+        servletContext.setAttribute("user" , "ECNU");
+        servletContext.removeAttribute("user");
 
-    public void run() {
-        System.out.println("运行");
-    }
+        HttpSession session = req.getSession();
+        session.invalidate();
 
+        resp.getWriter().println("hi" + user);
 
-    public void end() {
-        System.out.println("结束");
     }
 }
