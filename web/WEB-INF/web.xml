@@ -23,6 +23,24 @@
         <param-name>dbpassword</param-name>
         <param-value>123000</param-value>
     </context-param>
+    
+    <!--设置filter过滤器-->
+
+    <filter>
+        <filter-name>FilterTest</filter-name>
+        <filter-class>test.FilterTest</filter-class>
+        <init-param>
+            <param-name>test</param-name>
+            <param-value>hello</param-value>
+        </init-param>
+    </filter>
+    <!--在这里过滤器的过滤对象可以选择两种模式，
+    (1) 第一种模式是根据url的地址进行过滤 ，当访问web资源时直接对url地址进行过滤
+    (2) 第二种是根据Servlet的name进行过滤-->
+    <filter-mapping>
+        <filter-name>FilterTest</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
     <!--设置web的监听器-->
     <listener>

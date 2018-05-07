@@ -116,5 +116,8 @@
     <orderEntry type="library" name="commons-lang3-3.7" level="project" />
     <orderEntry type="library" name="commons-lang-2.6" level="project" />
     <orderEntry type="library" name="commons-collections-3.2.2-javadoc" level="project" />
+    <orderEntry type="library" name="commons-email-1.5-javadoc" level="project" />
+    <orderEntry type="library" name="activation-1.1" level="project" />
+    <orderEntry type="library" name="mail-1.4.7" level="project" />
   </component>
 </module>

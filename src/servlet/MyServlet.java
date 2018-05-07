@@ -23,6 +23,7 @@ public class MyServlet extends HttpServlet{
         servletContext.setAttribute("user" , "ECNU");
         servletContext.removeAttribute("user");
 
+        //在这一行代码中自动创建了session对象， 如果存在session对象则直接返回
         HttpSession session = req.getSession();
         session.invalidate();
 
