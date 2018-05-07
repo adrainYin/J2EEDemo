@@ -39,7 +39,17 @@
     (2) 第二种是根据Servlet的name进行过滤-->
     <filter-mapping>
         <filter-name>FilterTest</filter-name>
+        <!--对于url地址的过滤可以设置多个需要过滤的url地址-->
         <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+        <dispatcher>ERROR</dispatcher>
+    </filter-mapping>
+    <!--在这里对Servlet的过滤可以直接用Servlet的类名进行映射-->
+    <filter-mapping>
+        <filter-name>FilterTest</filter-name>
+        <servlet-name>AccountServlet</servlet-name>
     </filter-mapping>
 
     <!--设置web的监听器-->
@@ -222,5 +232,24 @@
     <servlet-mapping>
         <servlet-name>FindProductByWordServlet</servlet-name>
         <url-pattern>/findProductByWordServlet</url-pattern>
+    </servlet-mapping>
+    
+    <!--测试重定向的Servlet配置-->
+    <servlet>
+        <servlet-name>ServletTest</servlet-name>
+        <servlet-class>test.ServletTest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletTest</servlet-name>
+        <url-pattern>/servletTest</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ForwardServletTest</servlet-name>
+        <servlet-class>test.ForwardServletTest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ForwardServletTest</servlet-name>
+        <url-pattern>/forwardServlet</url-pattern>
     </servlet-mapping>
 </web-app>

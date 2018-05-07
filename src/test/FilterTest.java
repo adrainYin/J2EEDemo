@@ -2,6 +2,7 @@ package test;
 
 import javax.servlet.*;
 import java.io.IOException;
+import java.util.Enumeration;
 
 public class FilterTest implements Filter {
     /**
@@ -17,6 +18,12 @@ public class FilterTest implements Filter {
         String filterName = filterConfig.getFilterName();
         //这里得到的直接就是String类型的字符串，而不是一般看到的Object类型数据
         String value = filterConfig.getInitParameter("test");
+
+        //返回的是所有的参数映射的name值，用枚举类来表示，枚举类最后可以用迭代器模式模型输出所有的name值
+        Enumeration<String> enumeration = filterConfig.getInitParameterNames();
+        while (enumeration.hasMoreElements()){
+            System.out.println(enumeration.nextElement());
+        }
         System.out.println(filterName + "    " + value);
     }
 
