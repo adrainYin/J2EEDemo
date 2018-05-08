@@ -5,6 +5,7 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import utils.C3p0Utils;
 
+import javax.jws.soap.SOAPBinding;
 import java.sql.SQLException;
 
 public class UserDao {
@@ -22,6 +23,19 @@ public class UserDao {
         QueryRunner queryRunner = new QueryRunner(C3p0Utils.getDataSource());
         String sql = "SELECT * FROM user WHERE username=?";
         Object[] params = {username};
+        try {
+            User user = queryRunner.query(sql , new BeanHandler<>(User.class) , params);
+            return user;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public User findUser(String username , String password){
+        QueryRunner queryRunner = new QueryRunner(C3p0Utils.getDataSource());
+        String sql = "SELECT * FROM user WHERE username = ? AND password = ?";
+        Object[] params = {username,password};
         try {
             User user = queryRunner.query(sql , new BeanHandler<>(User.class) , params);
             return user;
