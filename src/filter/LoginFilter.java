@@ -12,7 +12,7 @@ import java.io.IOException;
 public class LoginFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-
+        //在这里的参数类型是FilterConfig，那么在filter初始化的时候就可以用此参数读取filter的配置
     }
 
     @Override

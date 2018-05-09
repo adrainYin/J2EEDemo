@@ -62,6 +62,15 @@
         <url-pattern>/userLogin.jsp</url-pattern>
     </filter-mapping>
 
+    <!--编码过滤器-->
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>filter.EncodingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
     <!--设置web的监听器-->
     <listener>
         <listener-class>listener.AppContextAttributeListener</listener-class>
